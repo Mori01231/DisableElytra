@@ -6,7 +6,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
 
-import static org.bukkit.Bukkit.getLogger;
 
 public class ElytraListener implements Listener {
 
