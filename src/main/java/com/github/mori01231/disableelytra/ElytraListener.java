@@ -6,6 +6,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
 
+import static org.bukkit.Bukkit.getLogger;
+
 public class ElytraListener implements Listener {
 
     private DisableElytra plugin;
@@ -18,7 +20,7 @@ public class ElytraListener implements Listener {
         if (event.getEntity().getType().equals(EntityType.PLAYER)){
             try{
                 for (String line : DisableElytra.getInstance().getConfig().getStringList("ElytraBannedWorlds")) {
-                    if(event.getEntity().getWorld().toString().equalsIgnoreCase(line)){
+                    if(event.getEntity().getWorld().getName().equalsIgnoreCase(line)){
                         event.setCancelled(true);
                     }
                 }
