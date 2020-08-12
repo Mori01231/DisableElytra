@@ -1,0 +1,6 @@
+name: DisableElytra
+version: @version@
+main: com.github.mori01231.disableelytra.DisableElytra
+api-version: 1.15
+authors: [Mori01231]
+description: Disabled Elytra in certain worlds
