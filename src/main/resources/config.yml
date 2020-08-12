@@ -1,0 +1,5 @@
+# Disable Elytra plugin config
+
+# ここにエリトラを使用されたくないワールドの名前を追加していこう。
+ElytraBannedWorlds:
+  - pve
