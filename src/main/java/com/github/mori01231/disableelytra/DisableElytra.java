@@ -1,6 +1,5 @@
 package com.github.mori01231.disableelytra;
 
-import org.bukkit.event.inventory.InventoryEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
