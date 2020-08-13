@@ -20,6 +20,7 @@ public class ElytraListener implements Listener {
             try{
                 for (String line : DisableElytra.getInstance().getConfig().getStringList("ElytraBannedWorlds")) {
                     if(event.getEntity().getWorld().getName().equalsIgnoreCase(line)){
+                        if(event.isGliding())
                         event.setCancelled(true);
                     }
                 }
