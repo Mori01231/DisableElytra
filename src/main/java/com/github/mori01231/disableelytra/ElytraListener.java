@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityToggleGlideEvent;
+import org.bukkit.event.player.PlayerTeleportEvent;
 
 
 public class ElytraListener implements Listener {
@@ -17,14 +18,21 @@ public class ElytraListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void onToggleGlideEvent(EntityToggleGlideEvent event) {
         if (event.getEntity().getType().equals(EntityType.PLAYER)){
-            try{
-                for (String line : DisableElytra.getInstance().getConfig().getStringList("ElytraBannedWorlds")) {
-                    if(event.getEntity().getWorld().getName().equalsIgnoreCase(line)){
-                        if(event.isGliding())
+            for (String line : DisableElytra.getInstance().getConfig().getStringList("ElytraBannedWorlds")) {
+                if(event.getEntity().getWorld().getName().equalsIgnoreCase(line)){
+                    if(event.isGliding()) {
                         event.setCancelled(true);
                     }
                 }
-            }catch (Exception e){
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onTeleportEvent(PlayerTeleportEvent event){
+        for (String line : DisableElytra.getInstance().getConfig().getStringList("ElytraBannedWorlds")) {
+            if(event.getPlayer().getLocation().getWorld().getName().equalsIgnoreCase(line)){
+                event.getPlayer().setGliding(false);
             }
         }
     }
