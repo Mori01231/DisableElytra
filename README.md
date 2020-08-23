@@ -1,4 +1,4 @@
 # DisableElytra
 
-### Disabled Elytra in certain worlds
+### Disable Elytra in certain worlds
 
